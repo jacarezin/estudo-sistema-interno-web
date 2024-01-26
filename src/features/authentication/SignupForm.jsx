@@ -4,6 +4,7 @@ import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 import { useSignup } from "./useSignup";
+import { useUpdateUser } from "./useUpdateUser";
 
 // Email regex: /\S+@\S+\.\S+/
 
@@ -13,9 +14,10 @@ function SignupForm() {
   const { errors } = formState;
 
   const { signup, isLoading } = useSignup();
+  const { updateUser } = useUpdateUser();
 
   function onSubmit({ fullName, email, password }) {
-    signup(
+    updateUser(
       { fullName, email, password },
       {
         onSettled: reset(),
