@@ -4,13 +4,12 @@ import { useBooking } from "../bookings/useBooking";
 import Spinner from "../../ui/Spinner";
 import React, { useEffect, useState } from "react";
 import Row from "../../ui/Row";
-import CheckBox from "../../ui/CheckBox";
 import Heading from "../../ui/Heading";
 import ButtonGroup from "../../ui/ButtonGroup";
 import Button from "../../ui/Button";
 import ButtonText from "../../ui/ButtonText";
 import { useSettings } from "../settings/useSettings";
-
+import CheckBox from "../../ui/Checkbox";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { formatCurrency } from "../../utils/helpers";
 import { useCheckin } from "./useCheckin";
