@@ -3,7 +3,7 @@ import { useUser } from "../features/authentication/useUser";
 import Spinner from "../ui/Spinner";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import resetApplication from "../data/Uploader";
 
 const FullPage = styled.div`
   height: 100vh;

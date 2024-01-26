@@ -13,10 +13,6 @@ module.exports = {
   plugins: ["react-refresh"],
   rules: {
     "react/prop-types": "off",
-    "react-refresh/only-export-components": [
-      "warn",
-      { allowConstantExport: true },
-    ],
     "no-unused-vars": "off",
     "vue/valid-v-bind": "off",
     //

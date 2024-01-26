@@ -41,7 +41,6 @@ export async function logout() {
 }
 
 export async function updateCurrentUser({ password, fullName, avatar }) {
-  console.log([password], [fullName], [avatar]);
   // 1. Update password or fullName
   let updateData;
   if (password) updateData = { password };

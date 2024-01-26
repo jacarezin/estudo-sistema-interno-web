@@ -3,10 +3,10 @@ import { isFuture, isPast, isToday } from "date-fns";
 import supabase from "../services/supabase";
 import Button from "../ui/Button";
 import { subtractDates } from "../utils/helpers";
-
 import { bookings } from "./data-bookings";
 import { cabins } from "./data-cabins";
 import { guests } from "./data-guests";
+import { useQueryClient } from "@tanstack/react-query";
 
 // const originalSettings = {
 //   minBookingLength: 3,
@@ -100,20 +100,7 @@ async function createBookings() {
 
 function Uploader() {
   const [isLoading, setIsLoading] = useState(false);
-
-  async function resetApplication() {
-    setIsLoading(true);
-    // Bookings need to be deleted FIRST
-    await deleteBookings();
-    await deleteGuests();
-    await deleteCabins();
-
-    // Bookings need to be created LAST
-    await createGuests();
-    await createCabins();
-    await createBookings();
-    setIsLoading(false);
-  }
+  const queryClient = useQueryClient();
 
   async function uploadAll() {
     setIsLoading(true);
@@ -126,8 +113,10 @@ function Uploader() {
     await createGuests();
     await createCabins();
     await createBookings();
-
     setIsLoading(false);
+    queryClient.invalidateQueries("bookings");
+    queryClient.invalidateQueries("guests");
+    queryClient.invalidateQueries("cabins");
   }
 
   async function uploadBookings() {
@@ -138,28 +127,14 @@ function Uploader() {
   }
 
   return (
-    <div
-      style={{
-        marginTop: "auto",
-        backgroundColor: "#e0e7ff",
-        padding: "8px",
-        borderRadius: "5px",
-        textAlign: "center",
-        display: "flex",
-        flexDirection: "column",
-        gap: "8px",
-      }}
+    <Button
+      size="small"
+      variation="secondary"
+      onClick={uploadAll}
+      disabled={isLoading}
     >
-      <h3>SAMPLE DATA</h3>
-
-      <Button onClick={uploadAll} disabled={isLoading}>
-        Upload ALL
-      </Button>
-
-      <Button onClick={uploadBookings} disabled={isLoading}>
-        Upload bookings ONLY
-      </Button>
-    </div>
+      Generate App Data
+    </Button>
   );
 }
 

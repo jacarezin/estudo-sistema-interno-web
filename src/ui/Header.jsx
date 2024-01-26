@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import UserAvatar from "../features/authentication/UserAvatar";
 import HeaderMenu from "./HeaderMenu";
+import Button from "./Button";
+import ResetButton from "../data/ResetButton";
 
 const StyledHeader = styled.header`
   background-color: var(--color-grey-0);
@@ -12,13 +14,24 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: flex-end;
 `;
+const StyledHeader2 = styled.header`
+  display: flex;
+  padding: 0 4.8rem;
+
+  justify-content: space-between;
+  align-items: center;
+`;
 
 function Header() {
   return (
-    <StyledHeader>
-      <UserAvatar />
-      <HeaderMenu />
-    </StyledHeader>
+    <StyledHeader2>
+      <ResetButton />
+
+      <StyledHeader>
+        <UserAvatar />
+        <HeaderMenu />
+      </StyledHeader>
+    </StyledHeader2>
   );
 }
 

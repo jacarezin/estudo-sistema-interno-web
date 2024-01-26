@@ -40,7 +40,6 @@ function CreateCabinForm() {
   });
 
   function onSubmit(data) {
-    console.log(data.image[0]);
     mutate({ ...data, image: data.image[0] });
     // console.log(getValues().regularPrice);
     // console.log(getValues().discount);
