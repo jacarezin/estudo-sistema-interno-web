@@ -19,6 +19,6 @@ module.exports = {
     ],
     "no-unused-vars": "off",
     "vue/valid-v-bind": "off",
-    // DESLIGAR NO FINAL
+    //
   },
 };
