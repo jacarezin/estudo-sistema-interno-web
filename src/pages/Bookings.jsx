@@ -1,12 +1,18 @@
 import Heading from "../ui/Heading";
-import Row from "../ui/Row";
+import StyledRowFilter from "../ui/StyledRowFilter";
+import BookingTable from "../features/bookings/BookingTable";
+import BookingTableOperations from "../features/bookings/BookingTableOperations";
 
 function Bookings() {
   return (
-    <Row type="horizontal">
-      <Heading as="h1">All bookings</Heading>
-      <p>TEST</p>
-    </Row>
+    <>
+      <StyledRowFilter type="horizontal">
+        <Heading as="h1">All bookings</Heading>
+        <BookingTableOperations />
+      </StyledRowFilter>
+
+      <BookingTable />
+    </>
   );
 }
 
