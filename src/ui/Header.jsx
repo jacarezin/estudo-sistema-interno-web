@@ -17,8 +17,8 @@ const StyledHeader = styled.header`
 const StyledHeader2 = styled.header`
   display: flex;
   padding: 0 4.8rem;
+  background-color: red;
   background-color: var(--color-grey-0);
-
   justify-content: space-between;
   align-items: center;
 `;
